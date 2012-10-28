@@ -1,0 +1,6 @@
+#! /usr/bin/env ruby
+
+pattern = Regexp.new(ARGV.shift)
+ARGF.lines do |line|
+    pattern.match(line) { |match| puts line }
+end
