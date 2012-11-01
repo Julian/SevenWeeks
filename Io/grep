@@ -1,0 +1,10 @@
+#! /usr/bin/env io
+
+program := System args removeFirst
+pattern := Regex with(System args removeFirst)
+
+System args foreach(filename,
+    File clone openForReading(filename) foreachLine(line,
+        if(line hasMatchOfRegex(pattern), line println)
+    )
+)
